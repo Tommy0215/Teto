@@ -6,17 +6,21 @@ import 'package:teto/music_room.dart';
 import 'package:teto/player.dart';
 
 class Level extends World with HasGameReference<MusicRoom>{
+  
   late Background horrorBackground;
+  final Player player;
 
-  final playerSize = Vector2.all(128);
+  Level({required this.player});
 
   @override
   FutureOr<void> onLoad() {
 
     horrorBackground = Background(size: game.size, path: 'horror.jpeg');
     add(horrorBackground);
-    add(Player(position: Vector2(200, game.size.y/1.1 - playerSize.y), 
-               size: playerSize));
+
+    player.position = Vector2(0, (game.size.y*0.9)-player.size.y);
+    add(player);
+    
     return super.onLoad();
   }
 }
