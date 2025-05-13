@@ -25,11 +25,11 @@ class Level extends World with HasGameReference<MusicRoom>{
   }
 }
 
+
 class Background extends SpriteComponent with HasGameReference<FlameGame>{
   late String path;
 
-  Background({super.size, required this.path}):super(
-  );
+  Background({super.size, required this.path}):super();
 
   @override
   Future<void> onLoad() async {

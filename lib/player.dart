@@ -56,8 +56,8 @@ class Player extends SpriteAnimationGroupComponent with
   
   void _loadAllAnimations() async {
     // Loading all animations
-    idleAnimation = await _spriteAnimation('girl_still.png', 1);
-    walkingAnimation = await _spriteAnimation('spritesheet.png', 4);
+    idleAnimation = _spriteAnimation('girl_still.png', 1);
+    walkingAnimation = _spriteAnimation('spritesheet.png', 4);
 
     // List of all animations
     animations = {
@@ -69,9 +69,9 @@ class Player extends SpriteAnimationGroupComponent with
     current = PlayerState.walking;
   }
 
-  Future<SpriteAnimation> _spriteAnimation(String path, int amount) async {
+  SpriteAnimation _spriteAnimation(String path, int amount){
     return SpriteAnimation.fromFrameData(
-     await game.images.load(path), SpriteAnimationData.sequenced(
+        game.images.fromCache(path), SpriteAnimationData.sequenced(
         amount: amount, 
         stepTime: stepTime, 
         textureSize: Vector2.all(64)
