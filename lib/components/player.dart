@@ -11,7 +11,7 @@ enum PlayerDirection {left, right, none}
 class Player extends SpriteAnimationGroupComponent with 
   HasGameReference<MusicRoom>, KeyboardHandler{
 
-  Player({super.position, super.size});
+  Player({super.position});
 
   late final SpriteAnimation idleAnimation;
   late final SpriteAnimation walkingAnimation;
